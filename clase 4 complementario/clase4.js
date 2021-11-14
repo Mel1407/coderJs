@@ -5,34 +5,32 @@ function saludar() {
 
 saludar();
 
-let precio = parseInt(prompt("Ingrese el valor de su producto"));
-let pago = prompt("Ingrese la forma de pago");
-let ciudad = prompt("Ingrese la ciudad de envío");
-
 function financiacion(pago, precio) {
-  if (pago == "crédito") {
+  if (pago == "Crédito") {
     let montoFinanciado = precio * 0.15;
     return montoFinanciado;
-  } else if (pago == "efectivo" && pago == "débito") {
-    let montoFinanciado = precio;
+  } else if (pago == "Efectivo") {
+    let montoFinanciado = precio * 1;
     return montoFinanciado;
   }
 }
 
-financiacion();
-
 function costoEnvio(precio, ciudad) {
-  if (ciudad == "Cordoba") {
+  if (ciudad == "Córdoba") {
     let envio = precio * 0.1;
     return envio;
   } else if (ciudad == "Buenos Aires") {
-    let envio = precio * 0.05;
+    let envio = precio * 0.15;
     return envio;
   }
 }
 
-costoEnvio();
+let precio = prompt("Ingrese el valor de su producto");
+let pago = prompt("Ingrese la forma de pago");
+let ciudad = prompt("Ingrese la ciudad de envío");
 
 let resultado =
-  precio + financiacion(pago, precio) + costoEnvio(precio, ciudad);
+  parseInt(precio) +
+  parseInt(financiacion(pago, precio)) +
+  parseInt(costoEnvio(precio, ciudad));
 alert("El precio final es de: " + resultado);
