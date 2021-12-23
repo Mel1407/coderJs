@@ -11,6 +11,11 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <title>lOGIN</title>
   </head>
   <body>
@@ -34,25 +39,18 @@
     <main>
       <div class="container__login">
         <div class="cover__login">
-          <form action="" class="text" id="form">
+          <div class="text">
             <br />
             <br />
-            <p>Nombre/s</p>
-            <input type="text" id="nombre" />
-            <p>Apellido/s</p>
-            <input type="text" id="apellido" />
-            <p>Correo</p>
-            <input type="email" name="" id="mail" />
-            <p>Teléfono de contacto</p>
-            <input type="tel" name="" id="tel" />
-            <p>Asignatura</p>
-            <input type="text" name="" id="asig" />
+            <p>Usuario</p>
+            <input type="text" id="usser" />
             <p>Contraseña</p>
-            <input type="password" name="" id="pass" />
+            <input type="password" id="pass" />
             <br />
             <br />
-            <input type="submit" id="registro" value="Enviar datos" />
-          </form>
+            <button onclick="validar()">Enviar</button>
+            <div id="mensajeLogin"></div>
+          </div>
         </div>
       </div>
     </main>

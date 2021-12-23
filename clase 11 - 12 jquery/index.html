@@ -11,7 +11,12 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <title>lOGIN</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <title>Software administrativo colegio</title>
   </head>
   <body>
     <header>
@@ -22,7 +27,7 @@
         <div class="menu">
           <nav>
             <ul>
-              <li><a href="index.html">Inicio</a></li>
+              <li><a href="#">Inicio</a></li>
               <li><a href="singup.html">Registro</a></li>
               <li><a href="login.html">Acceder</a></li>
               <li><a href="#">Contacto</a></li>
@@ -32,27 +37,23 @@
       </div>
     </header>
     <main>
-      <div class="container__login">
-        <div class="cover__login">
-          <form action="" class="text" id="form">
-            <br />
-            <br />
-            <p>Nombre/s</p>
-            <input type="text" id="nombre" />
-            <p>Apellido/s</p>
-            <input type="text" id="apellido" />
-            <p>Correo</p>
-            <input type="email" name="" id="mail" />
-            <p>Teléfono de contacto</p>
-            <input type="tel" name="" id="tel" />
-            <p>Asignatura</p>
-            <input type="text" name="" id="asig" />
-            <p>Contraseña</p>
-            <input type="password" name="" id="pass" />
-            <br />
-            <br />
-            <input type="submit" id="registro" value="Enviar datos" />
-          </form>
+      <div class="container__cover">
+        <div class="cover">
+          <div class="text">
+            <h1>Asistente docente</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+              quidem harum consequatur cumque, eveniet, sit amet molestiae
+              repellendus quam vel, beatae sequi ipsum explicabo illum quaerat.
+            </p>
+            <a href="login.html"
+              ><input type="button" id="buttonLog" value="INGRESA"
+            /></a>
+            <p class="log">¡Ingresa tus datos!</p>
+          </div>
+          <div class="svg">
+            <img src="imagenes/heroimag.png" alt="" />
+          </div>
         </div>
       </div>
     </main>
