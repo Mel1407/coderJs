@@ -12,95 +12,69 @@ sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
 
-/*/<--------- Registro -------->
+//<--------- Formulario Registro -------->
 
-class usuario {
-  constructor(usser, pass, correo, nombres, apellidos, materia) {
-    this.usser = usser;
-    this.pass = pass;
-    this.correo = correo;
-    this.nombres = nombres;
-    this.apellidos = apellidos;
-    this.materia = materia;
-  }
-  validar() {
-    if (this.usser != " " && this.pass != " ") {
-      console.log("Bienvenido al sistema: " + this.usser);
+window.addEventListener("load", () => {
+  const formulario = document.querySelector("#form2");
+  const usuario = document.querySelector("#usser");
+  const email = document.querySelector("#mail");
+  const pass = document.querySelector("#passReg");
+  const passConf = document.querySelector("#passReg2");
+
+  formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
+    validar();
+  });
+  const validar = () => {
+    const usuarioValor = usuario.value.trim();
+    const emailValor = email.value.trim();
+    const passValor = pass.value.trim();
+    const passConfValor = passConf.value.trim();
+
+    if (!emailValor) {
+      validaFalla(email, "Campo vacío");
+    } else if (!validaEmail(emailValor)) {
+      validaFalla(email, "El e-mail no es válido");
     } else {
-      console.log("Error. Intente de nuevo");
+      validaOk(email);
     }
-  }
-}
+    //validando campo password
+    const er = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,18}$/;
+    if (!passValor) {
+      validaFalla(pass, "Campo vacío");
+    } else if (passValor.length < 8) {
+      validaFalla(pass, "Debe tener 8 caracteres cómo mínimo.");
+    } else if (!passValor.match(er)) {
+      validaFalla(pass, "Debe tener al menos una may., una min. y un núm.");
+    } else {
+      validaOk(pass);
+    }
 
-let listaUsuarios = [];
-for (let i = 0; i < 1; i++) {
-  let usser = prompt("Ingrese su usuario");
-  let pass = prompt("Ingrese su contraseña");
-  let correo = prompt("Ingrese su correo");
-  let nombres = prompt("Ingrese su nombre/s");
-  let apellidos = prompt("Ingrese su apellido/s");
-  let materia = prompt("Ingrese su materia");
-  listaUsuarios.push(
-    new usuario(usser, pass, correo, nombres, apellidos, materia)
-  );
-}
+    //validando campo password Confirmación
+    if (!passConfirmaValor) {
+      validaFalla(passConfirma, "Confirme su password");
+    } else if (passValor !== passConfirmaValor) {
+      validaFalla(passConfirma, "La password no coincide");
+    } else {
+      validaOk(passConfirma);
+    }
+  };
 
-console.log(listaUsuarios);
+  const validaFalla = (input, msje) => {
+    const formControl = input.parentElement;
+    const aviso = formControl.querySelector("p");
+    aviso.innerText = msje;
 
-for (let usuario of listaUsuarios) {
-  if (usuario.validar()) {
-    console.log("Bienvenido al sistema" + usser);
-  } else {
-    console.log("Error");
-  }
-}
+    formControl.className = "form-control falla";
+  };
+  const validaOk = (input, msje) => {
+    const formControl = input.parentElement;
+    formControl.className = "form-control ok";
+  };
 
-//<--------- Calcular promedio -------->
-
-function prom() {
-  let nombre = prompt("Ingrese el nombre completo del alumno");
-  let examen1 = parseInt(prompt("Ingrese la nota del 1° examen"));
-  let examen2 = parseInt(prompt("Ingrese la nota del 2° examen"));
-  let notaFinal = (examen1 + examen2) / 2;
-  let promedio = notaFinal;
-  alert("La nota promedio de " + nombre + " es: " + promedio);
-}
-
-//<--------- Lista de alumnos -------->
-
-class alumno {
-  constructor(nombre, matricula, curso, materia, promedio) {
-    this.nombre = nombre;
-    this.matricula = matricula;
-    this.curso = curso;
-    this.materia = materia;
-    this.promedio = promedio;
-  }
-  promediar() {
-    if (this.promedio >= 7) {
-      return true;
-    } else this.promedio < 7;
-    return false;
-  }
-}
-
-let listaAlumnos = [];
-
-for (let i = 0; i < 2; i++) {
-  let nombre = prompt("Ingrese el nombre completo del alumno:");
-  let matricula = prompt("Ingrese su número de matrícula:");
-  let curso = prompt("Ingrese su curso:");
-  let promedio = prompt("Ingrese el promedio de las notas:");
-  listaAlumnos.push(new alumno(nombre, matricula, curso, promedio));
-  console.log("Los estudiantes nuevos ingresados son: " + listaAlumnos);
-}
-
-console.log(listaAlumnos);
-alumno.promediar();
-
-for (let alumno of listaAlumnos) {
-  if (alumno.promediar() == true) {
-    console.log("El alumno: " + alumno.nombre + "ha aprobado la materia.");
-  } else alumno.promediar() == false;
-  console.log("El alumno: " + alumno.nombre + " no ha aprobado la materia.");
-}*/
+  const validaEmail = (email) => {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+      email
+    );
+  };
+});

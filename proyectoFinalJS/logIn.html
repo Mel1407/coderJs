@@ -29,8 +29,7 @@
         <nav>
           <ul>
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="#">Menu</a></li>
-            <li><a href="logIn.html">Login / SingUp</a></li>
+            <li><a href="logIn.html">Acceso / Registro</a></li>
             <li><a href="#">Contacto</a></li>
           </ul>
         </nav>
@@ -40,19 +39,30 @@
   <main>
     <div class="container__log">
       <div class="forms__container">
+        <!-- FORMULARIO DE INGRESO -->
         <div class="signin-signup">
-          <form action="" class="sign-in-form">
+          <form action="" class="sign-in-form" id="form1">
             <h2 class="title">Ingreso</h2>
+            <!-- FORMULARIO DE USUARIO -->
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" placeholder="Usuario" />
+              <p></p>
             </div>
+            <!-- FORMULARIO DE CONTRASEÑA -->
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Contraseña" />
+              <p></p>
             </div>
-            <input type="submit" value="Ingreso" class="btn solid" />
-
+            <!-- BOTON DE INGRESO -->
+            <input
+              action="indexOk.html"
+              type="submit"
+              value="Ingreso"
+              class="btn solid"
+            />
+            <!-- INICIO REDES SOCIALES -->
             <p class="social-text">O ingresa con las redes sociales</p>
             <div class="social__media">
               <a href="#" class="social-icon">
@@ -68,18 +78,40 @@
             </div>
           </form>
 
-          <form action="" class="sign-up-form">
+          <!-- FORMULARIO DE REGISTRO -->
+          <form action="" class="sign-up-form" id="form2">
             <h2 class="title">Registro</h2>
+            <!-- FORMULARIO DE USUARIO -->
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Usuario" id="usser" />
+              <p></p>
+            </div>
+            <!-- FORMULARIO DE MAIL -->
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="text" placeholder="Email" />
+              <input type="text" placeholder="Email" id="mail" />
+              <p></p>
             </div>
+            <!-- FORMULARIO DE CONTRASEÑA -->
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Contraseña" id="passReg" />
+              <p></p>
             </div>
+            <!-- FORMULARIO DE REPETIR CONTRASEÑA -->
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                placeholder="Reingrese contraseña"
+                id="passReg2"
+              />
+              <p></p>
+            </div>
+            <!-- BOTON DE REGISTRO -->
             <input type="submit" value="Registro" class="btn solid" />
-
+            <!-- INICIO REDES SOCIALES -->
             <p class="social-text">O registrate con las redes sociales</p>
             <div class="social__media">
               <a href="#" class="social-icon">
@@ -96,7 +128,7 @@
           </form>
         </div>
       </div>
-
+      <!-- DERIVACIÓN A REGISTRO -->
       <div class="panels-container">
         <div class="panel left-panel">
           <div class="content">
@@ -110,7 +142,7 @@
             alt=""
           />
         </div>
-
+        <!-- DERIVACIÓN A INGRESO -->
         <div class="panel right-panel">
           <div class="content">
             <h3>¿Ya te registraste?</h3>
