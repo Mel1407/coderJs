@@ -202,7 +202,7 @@ form.sign-up-form {
   border-radius: 55px;
   display: grid;
   grid-template-columns: 15% 90%;
-  border: 2px #acacac solid;
+  border: 2px solid #acaaac;
   transition: 0.3s ease all;
 }
 
@@ -213,7 +213,7 @@ form.sign-up-form {
 .input-field i {
   text-align: center;
   line-height: 30px;
-  color: #acacac;
+  color: #acaaac;
   font-size: 0.8rem;
 }
 
@@ -409,10 +409,13 @@ form.sign-up-form {
 
 /*-------- VALIDACIÓN LOGIN --------*/
 
-.form-control falla input {
-  border-color: red;
-  border: 2px solid;
+.formGroup-true .form2__icon{
+  color: green
 }
+.formGroup-false .form2__icon{
+  color: red;
+}
+/*-------- MEDIA --------*/
 
 @media (max-width: 870px) {
   .container__log {

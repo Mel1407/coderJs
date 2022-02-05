@@ -12,8 +12,124 @@ sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
 
-//<--------- Formulario Registro -------->
+//<--------- Formulario Inicio -------->
 
+/*let listaUsuarios = [];
+
+class usuariosReg {
+  constructor(usuario, pass) {
+    this.usuario = usuario;
+    this.pass = pass;
+  }
+}
+
+let botonIngreso = document.getElementById("botonI");
+boton.addEventListener("click");*/
+
+//<--------- Formulario Registro -------->
+let formulario2 = document.getElementById("form2");
+let inputs = document.querySelectorAll("#form2 input");
+
+let expresiones = {
+  usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
+  password: /^.{4,12}$/, // 4 a 12 digitos.
+  correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+};
+
+let campos = {
+  usuario: false,
+  password: false,
+  correo: false,
+};
+
+let validarFormulario = (e) => {
+  switch (e.target.name) {
+    case "usserReg":
+      if (expresiones.usuario.test(e.target.value)) {
+        document
+          .getElementById("group_usserReg")
+          .classList.remove("formGroup-false");
+        document
+          .getElementById("group_usserReg")
+          .classList.add("formGroup-true");
+        campos["usserReg"] = true;
+      } else {
+        document
+          .getElementById("group_usserReg")
+          .classList.add("formGroup-false");
+      }
+      break;
+    case "mailReg":
+      if (expresiones.correo.test(e.target.value)) {
+        document
+          .getElementById("group_mailReg")
+          .classList.remove("formGroup-false");
+        document
+          .getElementById("group_mailReg")
+          .classList.add("formGroup-true");
+        campos["mailReg"] = true;
+      } else {
+        document
+          .getElementById("group_mailReg")
+          .classList.add("formGroup-false");
+      }
+      break;
+    case "passReg":
+      if (expresiones.password.test(e.target.value)) {
+        document
+          .getElementById("group_passReg")
+          .classList.remove("formGroup-false");
+        document
+          .getElementById("group_passReg")
+          .classList.add("formGroup-true");
+        campos["passReg"] = true;
+      } else {
+        document
+          .getElementById("group_passReg")
+          .classList.add("formGroup-false");
+        document
+          .getElementById("group_passReg")
+          .classList.remove("formGroup-true");
+      }
+      break;
+    case "passReg2":
+      validarPass2();
+  }
+};
+
+const validarPass2 = () => {
+  let inputpassReg1 = document.getElementById("passReg");
+  let inputpassReg2 = document.getElementById("passReg2");
+
+  if (inputpassReg1.value !== inputpassReg2.value) {
+    document.getElementById("group_passReg2").classList.add("formGroup-false");
+    document
+      .getElementById("group_passReg2")
+      .classList.remove("formGroup-true");
+    campos["passReg2"] = false;
+  } else {
+    document
+      .getElementById("group_passReg2")
+      .classList.remove("formGroup-false");
+    document.getElementById("group_passReg2").classList.add("formGroup-true");
+    campos["passReg2"] = true;
+  }
+};
+
+inputs.forEach((input) => {
+  input.addEventListener("keyup", validarFormulario);
+  input.addEventListener("blur", validarFormulario);
+});
+
+formulario2.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  if (campos.usserReg && campos.passReg && campos.mailReg) {
+    formulario2.reset();
+  }
+});
+
+/*
 window.addEventListener("load", () => {
   const formulario = document.querySelector("#form2");
   const usuario = document.querySelector("#usser");
@@ -78,3 +194,4 @@ window.addEventListener("load", () => {
     );
   };
 });
+*/

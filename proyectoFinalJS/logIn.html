@@ -46,13 +46,13 @@
             <!-- FORMULARIO DE USUARIO -->
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Usuario" />
+              <input type="text" placeholder="Usuario" id="usserI" />
               <p></p>
             </div>
             <!-- FORMULARIO DE CONTRASEÑA -->
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Contraseña" />
+              <input type="password" placeholder="Contraseña" id="passI" />
               <p></p>
             </div>
             <!-- BOTON DE INGRESO -->
@@ -61,6 +61,7 @@
               type="submit"
               value="Ingreso"
               class="btn solid"
+              id="btnI"
             />
             <!-- INICIO REDES SOCIALES -->
             <p class="social-text">O ingresa con las redes sociales</p>
@@ -82,30 +83,46 @@
           <form action="" class="sign-up-form" id="form2">
             <h2 class="title">Registro</h2>
             <!-- FORMULARIO DE USUARIO -->
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" placeholder="Usuario" id="usser" />
+            <div class="input-field" id="group_usserReg">
+              <i class="form2__icon fas fa-user"></i>
+              <input
+                type="text"
+                name="usserReg"
+                placeholder="Usuario"
+                id="usserReg"
+              />
               <p></p>
             </div>
             <!-- FORMULARIO DE MAIL -->
-            <div class="input-field">
-              <i class="fas fa-envelope"></i>
-              <input type="text" placeholder="Email" id="mail" />
+            <div class="input-field" id="group_mailReg">
+              <i class="form2__icon fas fa-envelope"></i>
+              <input
+                type="text"
+                name="mailReg"
+                placeholder="Email"
+                id="mailReg"
+              />
               <p></p>
             </div>
             <!-- FORMULARIO DE CONTRASEÑA -->
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Contraseña" id="passReg" />
+            <div class="input-field" id="group_passReg">
+              <i class="form2__icon fas fa-lock"></i>
+              <input
+                type="password"
+                name="passReg"
+                placeholder="Contraseña"
+                id="passReg"
+              />
               <p></p>
             </div>
             <!-- FORMULARIO DE REPETIR CONTRASEÑA -->
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
+            <div class="input-field" id="group_passReg2">
+              <i class="form2__icon fas fa-lock"></i>
               <input
                 type="password"
                 placeholder="Reingrese contraseña"
                 id="passReg2"
+                name="passReg2"
               />
               <p></p>
             </div>
@@ -125,6 +142,7 @@
                 <i class="fab fa-linkedin-in"></i
               ></a>
             </div>
+            <div></div>
           </form>
         </div>
       </div>
