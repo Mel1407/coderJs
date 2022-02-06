@@ -43,13 +43,14 @@
         <div class="signin-signup">
           <form action="" class="sign-in-form" id="form1">
             <h2 class="title">Ingreso</h2>
-            <!-- FORMULARIO DE USUARIO -->
+            <br />
+            <!-- USUARIO -->
             <div class="input-field">
               <i class="fas fa-user"></i>
               <input type="text" placeholder="Usuario" id="usserI" />
               <p></p>
             </div>
-            <!-- FORMULARIO DE CONTRASEÑA -->
+            <!-- CONTRASEÑA -->
             <div class="input-field">
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Contraseña" id="passI" />
@@ -63,6 +64,8 @@
               class="btn solid"
               id="btnI"
             />
+            <br />
+            <br />
             <!-- INICIO REDES SOCIALES -->
             <p class="social-text">O ingresa con las redes sociales</p>
             <div class="social__media">
@@ -91,7 +94,6 @@
                 placeholder="Usuario"
                 id="usserReg"
               />
-              <p></p>
             </div>
             <!-- FORMULARIO DE MAIL -->
             <div class="input-field" id="group_mailReg">
@@ -102,7 +104,6 @@
                 placeholder="Email"
                 id="mailReg"
               />
-              <p></p>
             </div>
             <!-- FORMULARIO DE CONTRASEÑA -->
             <div class="input-field" id="group_passReg">
@@ -113,7 +114,6 @@
                 placeholder="Contraseña"
                 id="passReg"
               />
-              <p></p>
             </div>
             <!-- FORMULARIO DE REPETIR CONTRASEÑA -->
             <div class="input-field" id="group_passReg2">
@@ -124,10 +124,31 @@
                 id="passReg2"
                 name="passReg2"
               />
-              <p></p>
+            </div>
+            <br />
+            <!-- FORMULARIO DE REPETIR CONTRASEÑA -->
+            <div class="form2_grupo" id="group_terms">
+              <label class="formulario__label">
+                <input
+                  class="form2__checkbox"
+                  type="checkbox"
+                  name="term"
+                  id="term"
+                />
+                Acepto los Terminos y Condiciones
+              </label>
             </div>
             <!-- BOTON DE REGISTRO -->
-            <input type="submit" value="Registro" class="btn solid" />
+            <input type="submit" value="Enviar" class="btn solid" />
+            <p class="form2__msg-exito" id="form2__msg-exito">
+              ¡Datos enviados exitosamente!
+            </p>
+            <div class="form2__msg-error" id="form2__msg-error">
+              <p>
+                <i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por
+                favor rellena el formulario correctamente.
+              </p>
+            </div>
             <!-- INICIO REDES SOCIALES -->
             <p class="social-text">O registrate con las redes sociales</p>
             <div class="social__media">
@@ -142,10 +163,10 @@
                 <i class="fab fa-linkedin-in"></i
               ></a>
             </div>
-            <div></div>
           </form>
         </div>
       </div>
+
       <!-- DERIVACIÓN A REGISTRO -->
       <div class="panels-container">
         <div class="panel left-panel">
@@ -160,6 +181,7 @@
             alt=""
           />
         </div>
+
         <!-- DERIVACIÓN A INGRESO -->
         <div class="panel right-panel">
           <div class="content">

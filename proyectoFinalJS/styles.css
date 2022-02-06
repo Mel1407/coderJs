@@ -415,6 +415,32 @@ form.sign-up-form {
 .formGroup-false .form2__icon{
   color: red;
 }
+
+.form2__msg-exito {
+	font-size: 14px;
+	color: green;
+	display: none;
+}
+
+.form2__msg-exito-activo {
+	display: block;
+}
+
+.form2__msg-error {
+	height: 10px;
+	color: rgba(255, 0, 0, 0.596);
+	border-radius: 3px;
+	display: none;
+}
+
+.form2__msg-error-activo {
+	display: block;
+}
+
+.form2__msg-error p {
+	margin: 0;
+}
+
 /*-------- MEDIA --------*/
 
 @media (max-width: 870px) {

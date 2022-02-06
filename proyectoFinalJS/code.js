@@ -14,22 +14,11 @@ sign_in_btn.addEventListener("click", () => {
 
 //<--------- Formulario Inicio -------->
 
-/*let listaUsuarios = [];
-
-class usuariosReg {
-  constructor(usuario, pass) {
-    this.usuario = usuario;
-    this.pass = pass;
-  }
-}
-
-let botonIngreso = document.getElementById("botonI");
-boton.addEventListener("click");*/
-
 //<--------- Formulario Registro -------->
+
+//<--------- Formulario Registro / Validación de datos -------->
 let formulario2 = document.getElementById("form2");
 let inputs = document.querySelectorAll("#form2 input");
-
 let expresiones = {
   usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
   password: /^.{4,12}$/, // 4 a 12 digitos.
@@ -97,7 +86,7 @@ let validarFormulario = (e) => {
   }
 };
 
-const validarPass2 = () => {
+let validarPass2 = () => {
   let inputpassReg1 = document.getElementById("passReg");
   let inputpassReg2 = document.getElementById("passReg2");
 
@@ -124,74 +113,60 @@ inputs.forEach((input) => {
 formulario2.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  if (campos.usserReg && campos.passReg && campos.mailReg) {
+  let term = document.getElementById("term");
+
+  if (
+    campos.usserReg &&
+    campos.passReg &&
+    campos.mailReg &&
+    campos.passReg2 &&
+    term.checked
+  ) {
     formulario2.reset();
+    document
+      .getElementById("form2__msg-exito")
+      .classList.add("form2__msg-exito-activo");
+    setTimeout(() => {
+      document
+        .getElementById("form2__msg-exito")
+        .classList.remove("form2__msg-exito-activo");
+    }, 5000);
+    document.querySelectorAll(".formGroup-true").forEach((icono) => {
+      icono.classList.remove("formGroup-true");
+      document
+        .getElementById("form2__msg-error")
+        .classList.remove("form2__msg-error-activo");
+    });
+  } else {
+    document
+      .getElementById("form2__msg-error")
+      .classList.add("form2__msg-error-activo");
   }
 });
 
-/*
-window.addEventListener("load", () => {
-  const formulario = document.querySelector("#form2");
-  const usuario = document.querySelector("#usser");
-  const email = document.querySelector("#mail");
-  const pass = document.querySelector("#passReg");
-  const passConf = document.querySelector("#passReg2");
+//<--------- Formulario Registro / Guardar datos -------->
 
-  formulario.addEventListener("submit", (e) => {
-    e.preventDefault();
-    validar();
-  });
-  const validar = () => {
-    const usuarioValor = usuario.value.trim();
-    const emailValor = email.value.trim();
-    const passValor = pass.value.trim();
-    const passConfValor = passConf.value.trim();
+const baseDatos = [];
+let inputValues = {
+  usserReg: "",
+  passReg: "",
+  mailReg: "",
+  passReg2: "",
+};
 
-    if (!emailValor) {
-      validaFalla(email, "Campo vacío");
-    } else if (!validaEmail(emailValor)) {
-      validaFalla(email, "El e-mail no es válido");
-    } else {
-      validaOk(email);
-    }
-    //validando campo password
-    const er = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,18}$/;
-    if (!passValor) {
-      validaFalla(pass, "Campo vacío");
-    } else if (passValor.length < 8) {
-      validaFalla(pass, "Debe tener 8 caracteres cómo mínimo.");
-    } else if (!passValor.match(er)) {
-      validaFalla(pass, "Debe tener al menos una may., una min. y un núm.");
-    } else {
-      validaOk(pass);
-    }
-
-    //validando campo password Confirmación
-    if (!passConfirmaValor) {
-      validaFalla(passConfirma, "Confirme su password");
-    } else if (passValor !== passConfirmaValor) {
-      validaFalla(passConfirma, "La password no coincide");
-    } else {
-      validaOk(passConfirma);
-    }
+let handleInput = (e) => {
+  inputValue = {
+    ...inputValue,
+    [e.target.usserReg]: e.target.value,
   };
+};
 
-  const validaFalla = (input, msje) => {
-    const formControl = input.parentElement;
-    const aviso = formControl.querySelector("p");
-    aviso.innerText = msje;
+let handleSubmit = (e) => {
+  e.preventDefault();
 
-    formControl.className = "form-control falla";
-  };
-  const validaOk = (input, msje) => {
-    const formControl = input.parentElement;
-    formControl.className = "form-control ok";
-  };
+  baseDatos.push(inputValue);
+};
 
-  const validaEmail = (email) => {
-    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-      email
-    );
-  };
-});
-*/
+formulario2.addEventListener("submit", handleSubmit);
+
+inputs.forEach((input) => input.addEventListener("input", handleInput));
